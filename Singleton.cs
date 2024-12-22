@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -87,6 +87,25 @@ namespace SingletonWork
                 if (Date < 335 && Date > 244) return "Spring";
                 return null;
             }
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Singleton singleton &&
+                   Date == singleton.Date &&
+                   Latitude == singleton.Latitude &&
+                   LatitudeLocation == singleton.LatitudeLocation &&
+                   City == singleton.City;
+        }
+
+        public override int GetHashCode()
+        {
+            int hashCode = 351943582;
+            hashCode = hashCode * -1521134295 + Date.GetHashCode();
+            hashCode = hashCode * -1521134295 + Latitude.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(LatitudeLocation);
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(City);
+            return hashCode;
         }
     }
 }
