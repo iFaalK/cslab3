@@ -21,8 +21,7 @@ namespace UserSingleton
             singleton1.LatitudeLocation = "N";
 
             string season = singleton1.DetermineSeason();
-
-            Console.WriteLine("\n=== Results ===");
+            
             Console.WriteLine($"City: {singleton1.City}");
             Console.WriteLine($"Date (day of the year): {singleton1.Date}");
             Console.WriteLine($"Latitude: {singleton1.Latitude}° {singleton1.LatitudeLocation}");
